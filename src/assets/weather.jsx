@@ -1,0 +1,44 @@
+import React, { useEffect } from 'react';
+import {loadTextures, cleanWeather } from './js/weather-utils';
+
+export default function Weather(props) {
+  const {type, temperature, textureOverrides = {}, showTime = false} = props;
+
+  useEffect(() => {
+    loadTextures(textureOverrides);
+    return () => {
+      cleanWeather();
+    };
+  },[])
+  
+  function calculateTemp() {
+    return temperature ? Number(temperature).toFixed(0) : 0;
+  }
+
+  function getCurrentTime() {
+    let now = new Date();
+    let options = {  
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    return now.toLocaleString('en-us', options);
+  }
+
+    return (
+        <>
+          <div className="slideshow">
+            <canvas width="1" height="1" id="container-weather"></canvas>
+            <div className="slide" id="slide-1" data-weather={type}>
+              {showTime && <div className="slide__element slide__element--date">{getCurrentTime()}</div>}
+              {temperature > 0 && <div className="slide__element slide__element--temp">{calculateTemp()}<sup className="celcius">C</sup></div>}
+            </div>
+          </div>
+          <p className="nosupport">Sorry, but your browser does not support WebGL!</p>
+        </>
+    )
+  
+}

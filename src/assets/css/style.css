@@ -8,15 +8,14 @@
 }
 
 
+* {margin: 0; padding: 0;}
 body, html {
     font-family: 'Roboto', sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
-a{
-	text-decoration: none;
-}
-
+a{text-decoration: none;}
+ul, li {list-style: none;}
 .image-preload {
 	position: absolute;
 	left: -9999px;
@@ -74,34 +73,11 @@ sup.celcius {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon--radioactive:before {
-	content: "\e905";
-}
-
-.icon--sun:before {
-	content: "\e900";
-}
-
-.icon--drizzle:before {
-	content: "\e902";
-}
-
-.icon--rainy:before {
-	content: "\e903";
-}
-
-.icon--storm:before {
-	content: "\e906";
-}
-
-.slideshow {
-	position: relative;
-	height: 100vh;
-	width: 100vw;
-	background: url(../img/city.jpg) no-repeat center top;
-	background-size: cover;
-	overflow: hidden;
-}
+.icon--radioactive:before {content: "\e905";}
+.icon--sun:before {content: "\e900";}
+.icon--drizzle:before {content: "\e902";}
+.icon--rainy:before {content: "\e903";}
+.icon--storm:before {content: "\e906";}
 
 .slideshow::before {
 	content: '';
@@ -113,63 +89,40 @@ sup.celcius {
 	background: rgba(255, 255, 255, 0.2);
 }
 
-.slide {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	padding: 35vh 0 0 0;
-	pointer-events: none;
-	line-height: 1;
-	font-family: "Roboto", sans-serif;
-}
-
-.slide--current {
-	pointer-events: auto;
-}
-
 .slideshow__nav {
 	text-align: center;
 	width: 100%;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-webkit-justify-content: center;
+	/* height: 100%; */
+	display: grid;
+	gap: 24px;
 	justify-content: center;
-	-webkit-align-items: center;
 	align-items: center;
 	position: absolute;
-	bottom: 28vh;
+	z-index: 1;
+	top: 32px;
+}
+.slideshow__nav ul {
+	display: flex;
+	gap: 32px;
 }
 
 .nav-item {
-	display: block;
-	padding: 1em;
+	display: flex;
+	align-items: center;
+	gap: 4px;
 	color: #252445;
-	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 	background: transparent;
 	border: none;
-	padding: 1em;
+	cursor: pointer;
+	font-size: 1.2rem;
+	font-weight: 700;
 }
 
 .nav-item:hover,
 .nav-item:focus,
 .nav-item--current {
 	color: #fff;
-}
-
-.nav-item .icon {
-	font-size: 2em;
-}
-
-.nav-item span {
-	display: block;
-	margin: 0.25em 0 0 0;
-	font-weight: 700;
 }
 
 
@@ -208,6 +161,7 @@ sup.celcius {
 	font-size: 1em;
 	font-weight: 700;
 	margin: 0 0 1em;
+	text-align: center;
 }
 
 @media screen and (max-height: 39em) {

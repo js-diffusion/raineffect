@@ -276,7 +276,7 @@ function setupWeatherData() {
 function updateWeather() {
   var hash = window.location.hash;
   var currentSlide = null;
-  // var currentNav = null;
+  var currentNav = null;
   if (hash !== "") {
     currentSlide = document.querySelector(hash);
   }
@@ -284,7 +284,7 @@ function updateWeather() {
     currentSlide = document.querySelector(".slide");
     hash = "#" + currentSlide.getAttribute("id");
   }
-  // currentNav = document.querySelector("[href='" + hash + "']");
+  currentNav = document.querySelector("[href='" + hash + "']");
   var data = weatherData[currentSlide.getAttribute('data-weather')];
   curWeatherData = data;
   raindrops.options=Object.assign(raindrops.options,data);
@@ -307,7 +307,7 @@ function updateWeather() {
   if (lastNav != null) lastNav.classList.remove("nav-item--current");
 
   currentSlide.classList.add("slide--current");
-  //currentNav.classList.add("nav-item--current");
+  currentNav.classList.add("nav-item--current");
 }
 
 function flash(baseBg, baseFg, flashBg, flashFg) {

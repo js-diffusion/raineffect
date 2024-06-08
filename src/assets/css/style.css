@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 @font-face {
 	font-family: 'icomoon';
@@ -7,10 +9,12 @@
 	font-style: normal;
 }
 
-
 * {margin: 0; padding: 0;}
 body, html {
-    font-family: 'Roboto', sans-serif;
+	overflow: hidden;
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 400;
+  font-style: normal;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
@@ -62,6 +66,7 @@ sup.celcius {
 }
 
 .icon {
+	font-size: 1.5rem;
 	font-family: 'icomoon';
 	font-style: normal;
 	font-weight: normal;
@@ -73,7 +78,6 @@ sup.celcius {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon--radioactive:before {content: "\e905";}
 .icon--sun:before {content: "\e900";}
 .icon--drizzle:before {content: "\e902";}
 .icon--rainy:before {content: "\e903";}
@@ -89,6 +93,9 @@ sup.celcius {
 	background: rgba(255, 255, 255, 0.2);
 }
 
+.slideshow__nav p {
+	font-weight: bold;
+}
 .slideshow__nav {
 	text-align: center;
 	width: 100%;
@@ -101,6 +108,7 @@ sup.celcius {
 	z-index: 1;
 	top: 32px;
 }
+
 .slideshow__nav ul {
 	display: flex;
 	gap: 32px;
@@ -115,16 +123,16 @@ sup.celcius {
 	background: transparent;
 	border: none;
 	cursor: pointer;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: 700;
+	font-family: "Gowun Dodum", sans-serif;
 }
 
 .nav-item:hover,
 .nav-item:focus,
-.nav-item--current {
+.nav-item--active {
 	color: #fff;
 }
-
 
 /* Content */
 
@@ -162,16 +170,4 @@ sup.celcius {
 	font-weight: 700;
 	margin: 0 0 1em;
 	text-align: center;
-}
-
-@media screen and (max-height: 39em) {
-	.slideshow {
-		font-size: 75%;
-	}
-	.slide {
-		padding-top: 35vh;
-	}
-	.slideshow__nav {
-		bottom: 6em;
-	}
 }

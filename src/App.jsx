@@ -8,25 +8,24 @@ export default function App() {
   const [showTime, setShowTime] = useState(true);
 
   useEffect(() => {
-    setWeatherState('rain');
+    setWeatherState('sunny');
   }, []);
 
   const handleClick = useCallback((event, condition) => {
     event.preventDefault();
     setWeatherState(condition);
   }, []);
-
+  
   const navItems = useMemo(() => [
-    { condition: 'rain', icon: 'icon--rainy', text: 'Rain' },
-    { condition: 'drizzle', icon: 'icon--drizzle', text: 'Drizzle' },
-    { condition: 'sunny', icon: 'icon--sun', text: 'Sunny' },
-    { condition: 'storm', icon: 'icon--storm', text: 'Storm' },
-    { condition: 'fallout', icon: 'icon--radioactive', text: 'Fallout' },
+    { condition: 'sunny', icon: 'icon--sun', text: '맑음' },
+    { condition: 'drizzle', icon: 'icon--drizzle', text: '이슬비' },
+    { condition: 'rain', icon: 'icon--rainy', text: '비' },
+    { condition: 'storm', icon: 'icon--storm', text: '폭우' },
   ], []);
 
   return (
     <>
-      <Nav navItems={navItems} handleClick={handleClick} showTime={showTime} />
+      <Nav navItems={navItems} handleClick={handleClick} showTime={showTime} activeCondition={weatherState} />
       <Weather type={weatherState} />
     </>
   );

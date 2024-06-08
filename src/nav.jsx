@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-export const Nav = ({ navItems, handleClick, showTime }) => {
+export const Nav = ({ navItems, handleClick, showTime, activeCondition }) => {
   const getCurrentTime = useCallback(() => {
     const now = new Date();
     const options = {
@@ -20,7 +20,10 @@ export const Nav = ({ navItems, handleClick, showTime }) => {
       <ul>
         {navItems.map(({ condition, icon, text }) => (
           <li key={condition}>
-            <button className="nav-item" onClick={(e) => handleClick(e, condition)}>
+            <button
+              className={`nav-item ${activeCondition === condition ? 'nav-item--active' : ''}`}
+              onClick={(e) => handleClick(e, condition)}
+            >
               <i className={`icon ${icon}`}></i>{text}
             </button>
           </li>
